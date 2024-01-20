@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.23.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "bot-whatsapp",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rimbadirgantara/bot-whatsapp.git"
+  },
+  "author": "cicak and ibrahim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rimbadirgantara/bot-whatsapp/issues"
+  },
+  "homepage": "https://github.com/rimbadirgantara/bot-whatsapp#readme"
+}
