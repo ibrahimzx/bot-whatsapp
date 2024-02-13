@@ -1,0 +1,122 @@
+[ fitur ]
+
+command : #h
+respone :
+[ Cicak Bot ]
+1. #h (bantuan)
+2. #sb site.com (scanning subdomain)
+3. #dp site.com (da pa checker)
+4. #bl site.com (backlink checker)
+5. #backup site.com (backup checker)
+
+command : #sb rapidapi.com
+respone :
+amp.rapidapi.com
+172.66.41.24
+cloudflare status true
+
+blog.rapidapi.com
+172.66.41.24
+cloudflare status true
+
+command : #dp google.com
+respone :
+da 100
+pa 100
+spam score 14
+backlink total 1517349141
+
+
+Message {
+  _data: {
+    id: {
+      fromMe: false,
+      remote: '62895603196568@c.us',
+      id: '3EB0AF298B8F6433032E9A',
+      _serialized: 'false_62895603196568@c.us_3EB0AF298B8F6433032E9A'
+    },
+    viewed: false,
+    body: '#ping',
+    type: 'chat',
+    t: 1705713259,
+    notifyName: 'cak@152.118.24.103~#',
+    from: '62895603196568@c.us',
+    to: '6282289529022@c.us',
+    self: 'in',
+    ack: 1,
+    invis: false,
+    isNewMsg: true,
+    star: false,
+    kicNotified: false,
+    recvFresh: true,
+    isFromTemplate: false,
+    thumbnail: '',
+    pollInvalidated: false,
+    isSentCagPollCreation: false,
+    latestEditMsgKey: null,
+    latestEditSenderTimestampMs: null,
+    mentionedJidList: [],
+    groupMentions: [],
+    isVcardOverMmsDocument: false,
+    hasReaction: false,
+    ephemeralSettingTimestamp: 1705710715,
+    disappearingModeInitiator: 'chat',
+    disappearingModeTrigger: 'chat_settings',
+    inviteGrpType: 'DEFAULT',
+    productHeaderImageRejected: false,
+    lastPlaybackProgress: 0,
+    isDynamicReplyButtonsMsg: false,
+    isCarouselCard: false,
+    parentMsgId: null,
+    isMdHistoryMsg: false,
+    stickerSentTs: 0,
+    isAvatar: false,
+    lastUpdateFromServerTs: 0,
+    invokedBotWid: null,
+    bizBotType: null,
+    botResponseTargetId: null,
+    botPluginType: null,
+    botPluginReferenceIndex: null,
+    botPluginSearchProvider: null,
+    botPluginSearchUrl: null,
+    botPluginMaybeParent: false,
+    botReelPluginThumbnailCdnUrl: null,
+    botMsgBodyType: null,
+    requiresDirectConnection: null,
+    links: []
+  },
+  mediaKey: undefined,
+  id: {
+    fromMe: false,
+    remote: '62895603196568@c.us',
+    id: '3EB0AF298B8F6433032E9A',
+    _serialized: 'false_62895603196568@c.us_3EB0AF298B8F6433032E9A'
+  },
+  ack: 1,
+  hasMedia: false,
+  body: '#ping',
+  type: 'chat',
+  timestamp: 1705713259,
+  from: '62895603196568@c.us',
+  to: '6282289529022@c.us',
+  author: undefined,
+  deviceType: 'android',
+  isForwarded: undefined,
+  forwardingScore: 0,
+  isStatus: false,
+  isStarred: false,
+  broadcast: undefined,
+  fromMe: false,
+  hasQuotedMsg: false,
+  hasReaction: false,
+  duration: undefined,
+  location: undefined,
+  vCards: [],
+  inviteV4: undefined,
+  mentionedIds: [],
+  orderId: undefined,
+  token: undefined,
+  isGif: false,
+  isEphemeral: undefined,
+  links: []
+}
