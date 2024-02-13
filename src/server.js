@@ -39,6 +39,19 @@ client.on('message', async (msg) => {
       await msg.reply(`${domain} tidak tersedia !`);
     }
 
+  } else if (fitur.ambilPerintah(msg.body, 0) === '#add') {
+    const dataDomain = fitur.ambilDataDomainDariPerintah(msg.body);
+    const namaDomain = fitur.ambilDomain(dataDomain);
+    const jsonData = fitur.convertKeJson(namaDomain, dataDomain);
+    fitur.simpanData(jsonData, namaDomain, async (err) => {
+      if (err) {
+        console.log(`ada error\n${err}`);
+        await msg.reply(`ada error\n${err}`);
+      } else {
+        console.log(`data ${namaDomain} berhasil di simpan !`);
+        await msg.reply(`data ${namaDomain} berhasil di simpan !`);
+      }
+    });
   }
 });
 

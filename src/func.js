@@ -19,7 +19,8 @@ class Fitur{
   perintah_h () {
     return `[ Cicak Bot ]
     1. #h (bantuan)
-    2. #chk site.com (backup checker)`;
+    2. #chk site.com (backup checker)
+    3. #add list`;
   }
 
   pecahData = (domain) => {
@@ -40,9 +41,10 @@ class Fitur{
     })
   }
   
-  simpanData = (dataJson, domain, callback) => {
+  simpanData = async (dataJson, domain, callback) => {
     // menyimpan data kedalam bentuk json
-    fs.writeFile(`../db/${domain}.json`, dataJson, err => {
+
+    fs.writeFile(`D:\\Rimba\\bot-whatsapp\\db\\${domain}.json`, dataJson, err => {
       if (err) {
         callback('ada error');
       } else {
@@ -66,14 +68,20 @@ class Fitur{
     const fileDomain = `D:\\Rimba\\bot-whatsapp\\db\\${namaDomain}.json`;
     try {
       const data = await fs.promises.readFile(fileDomain, 'utf-8');
-      const dataList = data.list;
-      console.log(`Data Ditemukan\nDomain : ${data.domain}\n${dataList.map(dtlist => dtlist.trim()).join('\n')}`)
       return JSON.parse(data);
     } catch (err) {
       throw err;
     }
   };
 
+  ambilDataDomainDariPerintah = (data) => {
+    // mengambil perintah dan list, lalu membuang kata perintah dan mengambil list domain
+    const b = data.split(' ')
+    b.shift()
+    const gabungkan = b.map(url => url.replace(/\n$/, '')).join(' ');
+    const hasil = gabungkan.split('\n');
+    return hasil;
+  }
 
 }
 
