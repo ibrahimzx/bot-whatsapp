@@ -39,6 +39,35 @@ client.on('message', async (msg) => {
       await msg.reply(`${domain} tidak tersedia !`);
     }
 
+  } else if (fitur.ambilPerintah(msg.body, 0) === '#add') {
+    const dataDomain = fitur.ambilDataDomainDariPerintah(msg.body);
+    const namaDomain = fitur.ambilDomain(dataDomain);
+    const jsonData = fitur.convertKeJson(namaDomain, dataDomain);
+    fitur.simpanData(jsonData, namaDomain, async (err) => {
+      if (err) {
+        console.log(`ada error\n${err}`);
+        await msg.reply(`ada error\n${err}`);
+      } else {
+        console.log(`data ${namaDomain} berhasil di simpan !`);
+        await msg.reply(`data ${namaDomain} berhasil di simpan !`);
+      }
+    });
+  } else if (fitur.ambilPerintah(msg.body, 0) === '#scaneDomain') {
+    const domain = fitur.ambilPerintah(msg.body, 1);
+    fitur.subdomainFinder(domain).then(async data => {
+      const hasil = [];
+      data.forEach(datas => {
+        hasil.push({
+          Subdomain: datas.subdomain,
+          IP: datas.ip,
+          'Cloud Flare Status': datas.cloudflare
+        });
+      });
+      await msg.reply(`Hasil Scane ${domain}\n${JSON.stringify(hasil, null, 2)}`);
+    }).catch(async err => {
+      console.log(err);
+      await msg.reply(`ada error cak`);
+    })
   }
 });
 
