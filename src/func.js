@@ -83,6 +83,28 @@ class Fitur{
     return hasil;
   }
 
+  subdomainFinder = async (domain) => {
+    const options = {
+      method: 'GET',
+      url: 'https://subdomain-finder3.p.rapidapi.com/v1/subdomain-finder/',
+      params: {
+        domain: domain
+      },
+      headers: {
+        'X-RapidAPI-Key': this.apiKey,
+        'X-RapidAPI-Host': 'subdomain-finder3.p.rapidapi.com'
+      }
+    };
+    
+    try {
+      const response = await axios.request(options);
+      return response.data.subdomains;
+    } catch (error) {
+      console.error(error);
+      return 'ada error cak :D liat terminal';
+    }
+  }
+
 }
 
 
