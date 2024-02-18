@@ -17,10 +17,13 @@ class Fitur{
   };
 
   perintah_h () {
-    return `[ Cicak Bot ]
-    1. #h (bantuan)
-    2. #chk site.com (backup checker)
-    3. #add list`;
+    return `[ ━ ★彡[ṦɆ０₽𝙅₽]彡★ :･ﾟ✧ ]
+1. #h (bantuan)
+2. #chk site.com (backup checker)
+3. #add list;
+4. #scaneDomain domain.com
+5. #checkDAPA domain.com
+    `;
   }
 
   pecahData = (domain) => {
@@ -105,6 +108,24 @@ class Fitur{
     }
   }
 
+  dapaBacklinkChecker = async (domain) => {
+    const options = {
+      method: 'GET',
+      url: 'https://domain-da-pa-check.p.rapidapi.com/',
+      params: {target: domain},
+      headers: {
+        'X-RapidAPI-Key': this.apiKey,
+        'X-RapidAPI-Host': 'domain-da-pa-check.p.rapidapi.com'
+      }
+    };
+    
+    try {
+      const response = await axios.request(options);
+      return response.data.body;
+    } catch (error) {
+      return error;
+    }
+  }
 }
 
 
