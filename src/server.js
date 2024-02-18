@@ -53,21 +53,25 @@ client.on('message', async (msg) => {
       }
     });
   } else if (fitur.ambilPerintah(msg.body, 0) === '#scaneDomain') {
-    const domain = fitur.ambilPerintah(msg.body, 1);
-    fitur.subdomainFinder(domain).then(async data => {
-      const hasil = [];
+    fitur.subdomainFinder(domain = fitur.ambilPerintah(msg.body, 1)).then(async data => {
+      let hasil = '';
       data.forEach(datas => {
-        hasil.push({
-          Subdomain: datas.subdomain,
-          IP: datas.ip,
-          'Cloud Flare Status': datas.cloudflare
-        });
+        hasil += `Subdomain: ${datas.subdomain}\n`;
+        hasil += `IP: ${datas.ip}\n`;
+        hasil += `Cloud Flare Status: ${datas.cloudflare}\n\n`;
       });
-      await msg.reply(`Hasil Scane ${domain}\n${JSON.stringify(hasil, null, 2)}`);
+      await msg.reply(hasil);
     }).catch(async err => {
       console.log(err);
-      await msg.reply(`ada error cak`);
+      await msg.reply(`fitur scane domain error cak, mungkin api nya limit :')`);
     })
+  } else if (fitur.ambilPerintah(msg.body, 0) === '#checkDAPA') {
+    fitur.dapaBacklinkChecker(fitur.ambilPerintah(msg.body, 1)).then(async data => {
+      await msg.reply(`[ ${data.target} ]\nDa Score: ${data.da_score}\nPA Score: ${data.pa_score}\nSpam Score: ${data.spam_score}\nTotal Backlink: ${data.total_backlinks}`);
+    }).catch(async err => {
+      console.log(err);
+      await msg.reply(`fitur DAPA Checker error cak, mungkin api nya limit :')`);
+    });
   }
 });
 
